@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #008a00;
+    border-bottom: 2px solid #008a00;
+    padding-bottom: 10px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"],
+.register-form input[type="text"],
+.register-form input[type="password"] {
+    width: 400px;
+    display: inline-block;
+}
+.account-form input[type="text"],
+.account-form input[type="number"] {
+    width: 200px;
+    display: inline-block;
+}
+
+form {
+    margin-top: 20px;
+}
+
+.account-form {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #008a00;
+    color: white;
+    margin: 10px 0;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #006600;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #008a00;
+    color: white;
+}
+
+/* Update the toast styling */
+.toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    border-radius: 4px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s;
+    text-align: center;
+    z-index: 1000;
+}
+
+.toast.success {
+    background-color: #008a00;
+}
+
+.toast.error {
+    background-color: #d9534f;
+}
+
+.toast.show {
+    opacity: 1;
+}

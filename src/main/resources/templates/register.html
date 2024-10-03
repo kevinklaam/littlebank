@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register Account- Mini Bank</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Register for Mini Bank</h2>
+        <form th:action="@{/register}" th:object="${user}" method="post" class="register-form">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" th:field="*{username}" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" th:field="*{password}" required minlength="3">
+            </div>
+            <div>
+                <small>Requirement: Password must be at least 3 characters long</small>
+            </div>
+            <div>
+                <button type="submit">Register</button>
+            </div>
+        </form>
+        <p>Already have an account? <a th:href="@{/login}">Login here</a></p>
+    </div>
+
+    <div id="toast" class="toast" th:if="${message}" th:text="${message}" th:classappend="${success} ? 'success' : 'error'"></div>
+
+    <script src="/js/banking.js"></script>
+</body>
+</html>

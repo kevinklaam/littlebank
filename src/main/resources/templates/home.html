@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Little Bank - Home</title>
+</head>
+<body>
+    <h1>Welcome, <span th:text="${user.username}"></span>!</h1>
+    <p>Your balance: $<span th:text="${user.balance}"></span></p>
+
+    <h2>Deposit</h2>
+    <form action="/deposit" method="post">
+        <input type="number" name="amount" step="0.01" required>
+        <button type="submit">Deposit</button>
+    </form>
+
+    <h2>Withdraw</h2>
+    <form action="/withdraw" method="post">
+        <input type="number" name="amount" step="0.01" required>
+        <button type="submit">Withdraw</button>
+    </form>
+
+    <h2>Transfer</h2>
+    <form action="/transfer" method="post">
+        <input type="text" name="toUsername" placeholder="Recipient's username" required>
+        <input type="number" name="amount" step="0.01" required>
+        <button type="submit">Transfer</button>
+    </form>
+
+    <form action="/logout" method="post">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

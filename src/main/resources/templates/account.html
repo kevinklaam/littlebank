@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Account - Mini Bank</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to Mini Bank, <span th:text="${user.username}"></span>!</h2>
+        <p>Your balance: $<span th:text="${user.balance}"></span></p>
+
+        <h3>Transaction History</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="transaction : ${transactions}">
+                    <td th:text="${#temporals.format(transaction.date, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                    <td th:text="${transaction.type}"></td>
+                    <td th:text="${transaction.amount}"></td>
+                    <td th:text="${transaction.description}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Deposit</h3>
+        <form th:action="@{/api/banking/deposit}" method="post" class="account-form">
+            <input type="number" name="amount" step="0.01" required>
+            <button type="submit">Deposit</button>
+        </form>
+        
+        <h3>Withdraw</h3>
+        <form th:action="@{/api/banking/withdraw}" method="post" class="account-form">
+            <input type="number" name="amount" step="0.01" required>
+            <button type="submit">Withdraw</button>
+        </form>
+        
+        <h3>Transfer</h3>
+        <form th:action="@{/api/banking/transfer}" method="post" class="account-form">
+            <input type="text" name="toUsername" placeholder="Recipient's username" required>
+            <input type="number" name="amount" step="0.01" required>
+            <button type="submit">Transfer</button>
+        </form>
+        
+
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+
+    <div id="toast" class="toast" th:if="${message}" th:text="${message}" th:classappend="${success} ? 'success' : 'error'"></div>
+
+    <script src="/js/banking.js"></script>
+</body>
+</html>
