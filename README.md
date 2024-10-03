@@ -2,6 +2,8 @@
 
 LittleBank is a simple banking application built with Spring Boot, demonstrating core concepts of web development, security, and database management.
 
+http://littlebank-dns.eastus.azurecontainer.io/login
+
 ## What I Learned
 
 - Building a full-stack web application using Spring Boot
